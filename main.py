@@ -73,3 +73,11 @@ def filter_notes_by_date():
     else:
         print("Заметки на указанную дату не найдены")
 
+def print_notes():
+    for note in notes:
+        print(f"ID: {note['id']}")
+        print(f"Заголовок: {note['title']}")
+        print(f"Тело: {note['message']}")
+        print(f"Дата/время создания или последнего изменения: {note['timestamp']}")
+        print()
+
