@@ -52,3 +52,24 @@ def edit_note():
             return
     print("Заметка с указанным ID не найдена")
 
+def filter_notes_by_date():
+    date_str = input("Введите дату для фильтрации заметок (YYYY-MM-DD): ")
+    try:
+        filter_date = datetime.datetime.strftime(date_str, "%Y-%m-%d").date()
+    except ValueError:
+        print("Некорректный формат даты")
+        return
+
+    filtered_notes = [note for note in notes if datetime.datetime.strptime(note['timestamp'], "%Y-%m-%d %H:%M:%S").date() == filter_date]
+
+    if filtered_notes:
+        print("Заметки на указанную дату: ")
+        for note in filtered_notes:
+            print(f"ID: {note['id']}")
+            print(f"Заголовок: {note['title']}")
+            print(f"Тело: {note['message']}")
+            print(f"Дата/время создания или последнего изменения: {note['timestamp']}")
+            print()
+    else:
+        print("Заметки на указанную дату не найдены")
+
