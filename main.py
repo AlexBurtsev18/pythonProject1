@@ -1,5 +1,3 @@
-# beginning
-
 import json
 import datetime
 
@@ -11,4 +9,11 @@ def load_notes():
         return []
 
 notes = load_notes()
+
+def save_notes(notes):
+    with open('notes.json', 'w') as file:
+        json.dump(notes, file, indent=4)
+
+
+
 
