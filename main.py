@@ -10,3 +10,5 @@ def load_notes():
     except FileNotFoundError:
         return []
 
+notes = load_notes()
+
